@@ -5,17 +5,24 @@
 # else:
 #     print("done")
 
-import time
-def fib(n):
-    a, b = 0, 1
-    for _ in range(n):
-        print(a)
-        a, b = b, a + b
+# import time
+# def fib(n):
+#     a, b = 0, 1
+#     for _ in range(n):
+#         print(a)
+#         a, b = b, a + b
+#
+# s = time.time()
+# fib(1000)
+# e = time.time()
+#
+# print(e - s, "seconds")
 
-s = time.time()
-fib(1000)
-e = time.time()
+#Fun learnings
 
-print(e - s, "seconds")
+name = input("Enter you fav char name:")
+age = int(input("Enter your age:"))
+ageH = int(input("Enter ur fav chars age:"))
 
+print(f"Hehehe, you are ",age+ageH," times a bigger idiot than",name)
 
