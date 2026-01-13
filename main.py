@@ -57,9 +57,25 @@
 #     print(i)
 #     i=i+1
 
-i=0
-while True:
-    print(i)
-    i=i+1
-    if i==2000:
-        break
+# i=0
+# while True:
+#     print(i)
+#     i=i+1
+#     if i==2000:
+#         break
+
+# pwd = ''
+# while pwd != "123":
+#     pwd = input("Enter password (123): ")
+# print("access granted")
+
+# inp = int(input("enter a number: "))
+# if inp % 2 == 0:print("number is even")
+# else:print("number is odd")
+
+# marks = int(input("Enter your marks: "))
+# if marks >=90 : print("grade: A")
+# elif marks >=80 : print("grade: B")
+# elif marks >= 70: print("grade: C")
+# else:print("grade: F")
+
