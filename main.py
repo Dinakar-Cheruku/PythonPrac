@@ -79,3 +79,19 @@
 # elif marks >= 70: print("grade: C")
 # else:print("grade: F")
 
+# guessing game
+import random
+
+sn = random.randint(1,10)
+n = 0
+i = 0
+while n!=sn:
+    i += 1
+    n = int(input("Enter your guess btw 1 to 10: "))
+    if n<sn:
+        print("Too low")
+    elif n>sn:
+        print("Too high")
+    else:
+        print("-------------------------")
+        print("you have done it, its ",sn," and you took ",i," guesses")
