@@ -26,7 +26,7 @@
 #
 # print(f"Hehehe, you are ",age+ageH," times a bigger idiot than",name)
 
-x, y = 7,15
+# x, y = 7,15
 # if (x>0 and y<20):print(x,y)
 # if (x>0 or y>20):print(x,y)
 
@@ -37,3 +37,29 @@ x, y = 7,15
 
 # print("x>0" if x > 0 else "", "y<20" if y < 20 else "")
 
+
+# how many letter that are there
+# fruits = ["apple","banana","mango"]
+# res = []
+# for fruit in fruits:
+#     for i in fruit:
+#         res.append(i.upper())
+# print(res)
+# print(len(res))
+
+
+# print 1 to 5 using for and while
+
+# for i in range(1,6):print(i)
+
+# i=1
+# while i<6:
+#     print(i)
+#     i=i+1
+
+i=0
+while True:
+    print(i)
+    i=i+1
+    if i==2000:
+        break
