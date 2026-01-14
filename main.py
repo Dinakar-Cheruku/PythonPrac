@@ -1,4 +1,4 @@
-#print("lorem ipsum bismillah abdhullah")
+# print("lorem ipsum bismillah abdhullah")
 
 # for c in range(2,30,4):
 #     print(c)
@@ -18,7 +18,7 @@
 #
 # print(e - s, "seconds")
 
-#Fun learnings
+# Fun learnings
 
 # name = input("Enter you fav char name:")
 # age = int(input("Enter your age:"))
@@ -99,3 +99,35 @@
 # item1_price,item2_price,item3_price = 50,120,30
 # total_bill = item1_price + item2_price + item3_price
 # print(f"The total bill amount is {total_bill}.")
+
+# fruit = ['apple','banana','cherry','date']
+# fruit.append('panjandrum')
+# fruit.insert(1,'pichafruit')
+# print(fruit)
+# print(fruit.index('jampandu'))
+# print(len(fruit))
+
+# y = [x * x * x for x in range(500) if x % 2 == 0 and x % 19 == 0]
+# print(y)
+# print(len(y))
+
+# L = [1,2,3,3,3,4,5]
+# s = set(L)
+# print(s)
+
+# dictionary
+
+
+keys = ["name", "age", "grade"]
+values = ["Alex", 21, ['A', 'B', 'A+']]
+student = dict(zip(keys, values))  # use this for production safety.
+student["email"] = "abc@gmail.com"
+student["email"] = "bcd@gmail.com"
+print(student.keys())
+print(student.values())
+print(student.items())
+
+key_list = [x for x in student]
+print(key_list)
+
+# How python is used to create APIs used in analytical dashboards.
