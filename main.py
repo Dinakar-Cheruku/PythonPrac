@@ -80,18 +80,22 @@
 # else:print("grade: F")
 
 # guessing game
-import random
+# import random
+#
+# sn = random.randint(1,10)
+# n = 0
+# i = 0
+# while n!=sn:
+#     i += 1
+#     n = int(input("Enter your guess btw 1 to 10: "))
+#     if n<sn:
+#         print("Too low")
+#     elif n>sn:
+#         print("Too high")
+#     else:
+#         print("-------------------------")
+#         print("you have done it, its ",sn," and you took ",i," guesses")
 
-sn = random.randint(1,10)
-n = 0
-i = 0
-while n!=sn:
-    i += 1
-    n = int(input("Enter your guess btw 1 to 10: "))
-    if n<sn:
-        print("Too low")
-    elif n>sn:
-        print("Too high")
-    else:
-        print("-------------------------")
-        print("you have done it, its ",sn," and you took ",i," guesses")
+# item1_price,item2_price,item3_price = 50,120,30
+# total_bill = item1_price + item2_price + item3_price
+# print(f"The total bill amount is {total_bill}.")
