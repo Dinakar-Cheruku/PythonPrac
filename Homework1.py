@@ -146,3 +146,18 @@
 # # Call the function with keyword arguments
 # greet(Alex="Hello", Maria="Hi", John="Good morning")
 
+# f = map(lambda x:x%2 == 0,[1,2,3,4,5,6])
+# print(list(f))
+
+# f = filter(lambda x:x%2 == 0,[1,2,3,4,5,6])
+# print(list(f))
+
+# a = [1,2,3]
+# b = [4,5,6]
+#
+# result = list(map(lambda x,y:x+y==7,a,b))
+# print(result)
+
+# r = map(lambda m:m+5,[85,88,90,92])
+# res = filter(lambda m:m>90,r)
+# print(list(res))

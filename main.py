@@ -118,16 +118,87 @@
 # dictionary
 
 
-keys = ["name", "age", "grade"]
-values = ["Alex", 21, ['A', 'B', 'A+']]
-student = dict(zip(keys, values))  # use this for production safety.
-student["email"] = "abc@gmail.com"
-student["email"] = "bcd@gmail.com"
-print(student.keys())
-print(student.values())
-print(student.items())
-
-key_list = [x for x in student]
-print(key_list)
+# keys = ["name", "age", "grade"]
+# values = ["Alex", 21, ['A', 'B', 'A+']]
+# student = dict(zip(keys, values))  # use this for production safety.
+# student["email"] = "abc@gmail.com"
+# student["email"] = "bcd@gmail.com"
+# print(student.keys())
+# print(student.values())
+# print(student.items())
+#
+# key_list = [x for x in student]
+# print(key_list)
 
 # How python is used to create APIs used in analytical dashboards.
+# An api is like an interface between the visible dashboards and the curated data. When the dash needs to do some viduslisation it sends a HTTP parameterised request to the python API
+# EG: {
+#   "start_date": "2026-01-01",
+#   "end_date": "2026-01-31",
+#   "region": "US"
+# }
+# Python code:Validates inputs,Applies defaults,Enforces allowed filters,Prevents bad queries
+# the python returns
+# [
+#   {"date": "2026-01-01", "revenue": 12000},
+#   {"date": "2026-01-02", "revenue": 13500}
+# ]
+# Dashboards send parameterized HTTP requests (often JSON). Python APIs validate the request, query curated analytical tables using standardized business logic, and return structured JSON responses consumed by dashboards.
+
+# Example: GET /revenue?start_date=2026-01-01&end_date=2026-01-02
+from fastapi import FastAPI
+from typing import List
+
+app = FastAPI()
+
+
+@app.get("/revenue")
+def get_revenue(start_date: str, end_date: str):
+    """
+    Fetch daily revenue between dates
+    """
+    # Normally this would query Snowflake / BigQuery
+    data = [
+        {"date": "2026-01-01", "revenue": 12000},
+        {"date": "2026-01-02", "revenue": 13500},
+    ]
+
+    return data
+
+#how exactly an sql query goes into this python fucntion. Thats where sql alchemy comes into picture.
+
+from fastapi import FastAPI
+from sqlalchemy import create_engine, text
+
+app = FastAPI()
+
+engine = create_engine("snowflake://<user>:<password>@<account>/<db>/<schema>")
+@app.get("/revenue")
+def get_revenue(start_date: str, end_date: str):
+
+    query = text("""
+        SELECT
+            date,
+            SUM(revenue) AS revenue
+        FROM gold_daily_revenue
+        WHERE date BETWEEN :start_date AND :end_date
+        GROUP BY date
+        ORDER BY date
+    """)
+
+    with engine.connect() as conn:
+        result = conn.execute(
+            query,
+            {"start_date": start_date, "end_date": end_date}
+        )
+
+        rows = result.fetchall()
+
+    # Convert SQL rows to JSON-friendly format
+    data = [
+        {"date": row.date, "revenue": row.revenue}
+        for row in rows
+    ]
+
+    return data
+
