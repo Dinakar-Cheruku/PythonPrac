@@ -146,59 +146,59 @@
 # Dashboards send parameterized HTTP requests (often JSON). Python APIs validate the request, query curated analytical tables using standardized business logic, and return structured JSON responses consumed by dashboards.
 
 # Example: GET /revenue?start_date=2026-01-01&end_date=2026-01-02
-from fastapi import FastAPI
-from typing import List
-
-app = FastAPI()
-
-
-@app.get("/revenue")
-def get_revenue(start_date: str, end_date: str):
-    """
-    Fetch daily revenue between dates
-    """
-    # Normally this would query Snowflake / BigQuery
-    data = [
-        {"date": "2026-01-01", "revenue": 12000},
-        {"date": "2026-01-02", "revenue": 13500},
-    ]
-
-    return data
+# from fastapi import FastAPI
+# from typing import List
+#
+# app = FastAPI()
+#
+#
+# @app.get("/revenue")
+# def get_revenue(start_date: str, end_date: str):
+#     """
+#     Fetch daily revenue between dates
+#     """
+#     # Normally this would query Snowflake / BigQuery
+#     data = [
+#         {"date": "2026-01-01", "revenue": 12000},
+#         {"date": "2026-01-02", "revenue": 13500},
+#     ]
+#
+#     return data
 
 #how exactly an sql query goes into this python fucntion. Thats where sql alchemy comes into picture.
 
-from fastapi import FastAPI
-from sqlalchemy import create_engine, text
-
-app = FastAPI()
-
-engine = create_engine("snowflake://<user>:<password>@<account>/<db>/<schema>")
-@app.get("/revenue")
-def get_revenue(start_date: str, end_date: str):
-
-    query = text("""
-        SELECT
-            date,
-            SUM(revenue) AS revenue
-        FROM gold_daily_revenue
-        WHERE date BETWEEN :start_date AND :end_date
-        GROUP BY date
-        ORDER BY date
-    """)
-
-    with engine.connect() as conn:
-        result = conn.execute(
-            query,
-            {"start_date": start_date, "end_date": end_date}
-        )
-
-        rows = result.fetchall()
-
-    # Convert SQL rows to JSON-friendly format
-    data = [
-        {"date": row.date, "revenue": row.revenue}
-        for row in rows
-    ]
-
-    return data
+# from fastapi import FastAPI
+# from sqlalchemy import create_engine, text
+#
+# app = FastAPI()
+#
+# engine = create_engine("snowflake://<user>:<password>@<account>/<db>/<schema>")
+# @app.get("/revenue")
+# def get_revenue(start_date: str, end_date: str):
+#
+#     query = text("""
+#         SELECT
+#             date,
+#             SUM(revenue) AS revenue
+#         FROM gold_daily_revenue
+#         WHERE date BETWEEN :start_date AND :end_date
+#         GROUP BY date
+#         ORDER BY date
+#     """)
+#
+#     with engine.connect() as conn:
+#         result = conn.execute(
+#             query,
+#             {"start_date": start_date, "end_date": end_date}
+#         )
+#
+#         rows = result.fetchall()
+#
+#     # Convert SQL rows to JSON-friendly format
+#     data = [
+#         {"date": row.date, "revenue": row.revenue}
+#         for row in rows
+#     ]
+#
+#     return data
 

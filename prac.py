@@ -53,30 +53,33 @@
 #         print("Enter a valid operator")
 
 #Learning Dictionaries
-std = {}
-std["name"] = 'Batthai'
-std["age"] = 3
-std["nature"] = "ferocious"
-std["skills"] = ["sleeping","overacting","scrolling"]
-std["hobbies"] = {"weekdays" : "Eating biryani","weekends" : "eating fried rice","holidays":"eating haleem"}
+# std = {}
+# std["name"] = 'Batthai'
+# std["age"] = 3
+# std["nature"] = "ferocious"
+# std["skills"] = ["sleeping","overacting","scrolling"]
+# std["hobbies"] = {"weekdays" : "Eating biryani","weekends" : "eating fried rice","holidays":"eating haleem"}
+#
+# print(std["skills"][0])
+# print(std)
+#
+# company = {
+#     "name": "TechCorp",
+#     "departments": {
+#         "data": {
+#             "head": "Alex",
+#             "employees": {
+#                 "E1": {"name": "Sam", "role": "Data Engineer"},
+#                 "E2": {"name": "Mia", "role": "Analytics Engineer"}
+#             }
+#         }
+#     }
+# }
+# print(company["departments"]["data"]["head"])
+# print(company["departments"]["data"]["employees"]["E1"]["role"])
+#
+# company["departments"]["data"]["employees"]["E2"]["role"] = "Senior Analytics Engineer"
+# print(company)
 
-print(std["skills"][0])
-print(std)
+#jan 16th
 
-company = {
-    "name": "TechCorp",
-    "departments": {
-        "data": {
-            "head": "Alex",
-            "employees": {
-                "E1": {"name": "Sam", "role": "Data Engineer"},
-                "E2": {"name": "Mia", "role": "Analytics Engineer"}
-            }
-        }
-    }
-}
-print(company["departments"]["data"]["head"])
-print(company["departments"]["data"]["employees"]["E1"]["role"])
-
-company["departments"]["data"]["employees"]["E2"]["role"] = "Senior Analytics Engineer"
-print(company)
