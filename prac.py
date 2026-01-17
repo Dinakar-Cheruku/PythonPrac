@@ -83,3 +83,7 @@
 
 #jan 16th
 
+#3rd party api sends the data to a server (can be ec2 or on-prem), they will be an active batch jon (tool) which would be setup,
+#everyday at a specific time the file arrives and the tool picks the file and dumps it into a storage(s3 etc) where there will be another batch job using python which will automatically picks out the fields and puts the data into a databse table.
+# the active batch jobs are written in databricks and its function is to pick the file drop it into the s3 and delete the file in server.
+# the python script is being run in the server like an ec2 using aws lambda etc.. the database would be like a postgreDB or mariaDB.
